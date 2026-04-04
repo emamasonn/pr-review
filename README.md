@@ -2,12 +2,12 @@
 
 Agente de code review impulsado por IA para Pull Requests de GitHub. Analiza el diff de un PR, detecta problemas de código aplicando las reglas de tu equipo, y los presenta en una tabla interactiva con prioridad, categoría, snippet y sugerencia de corrección.
 
-Demo: https://pr-review-two.vercel.app/
-
 Soporta dos modos de ejecución:
 
 - **Ollama** — modelo local (CodeLlama u otros), corre en tu propia máquina, sin costo y sin que el código salga de tu entorno.
 - **Claude (Anthropic)** — modelo en la nube, más capaz, requiere API key.
+
+Demo: https://pr-review-two.vercel.app/
 
 ---
 
