@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* shadcn/ui CSS variables — dark amber theme */
+    --background:         217 28% 7%;      /* #0D1117 */
+    --foreground:         213 27% 90%;     /* #E6EDF3 */
+
+    --card:               215 24% 11%;     /* #161B22 */
+    --card-foreground:    213 27% 90%;
+
+    --popover:            215 22% 16%;     /* #21262D */
+    --popover-foreground: 213 27% 90%;
+
+    --primary:            36 76% 59%;      /* #E8A44A amber gold */
+    --primary-foreground: 217 28% 7%;      /* dark text on gold */
+
+    --secondary:          215 22% 16%;
+    --secondary-foreground: 213 27% 90%;
+
+    --muted:              215 22% 16%;
+    --muted-foreground:   217 11% 57%;     /* #8B949E */
+
+    --accent:             36 76% 59%;
+    --accent-foreground:  217 28% 7%;
+
+    --destructive:        4 90% 58%;       /* #F85149 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border:             215 18% 20%;     /* #30363D */
+    --input:              215 18% 20%;
+    --ring:               36 76% 59%;
+
+    --radius: 0.4rem;
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground/30; }
+}
+
+/* Full-height app layout */
+html, body, #__next { height: 100%; }
+.app-root  { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+.app-body  { flex: 1; display: grid; grid-template-columns: 320px 1fr; overflow: hidden; }
+
+@media (max-width: 900px) {
+  .app-body { grid-template-columns: 1fr; grid-template-rows: 200px 1fr; }
+}
+
+/* Locked prompt section */
+.prompt-locked-code {
+  user-select: none;
+  cursor: not-allowed;
+}
