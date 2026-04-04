@@ -1,6 +1,5 @@
-import { PRDetails } from "./types";
-import { PRDiff, formatPRDiffForLLM, formatFileDiffForLLM } from "./diff-parser";
-import { FileDiff } from "./types";
+import { PRDetails, PRDiff, FileDiff } from "./types";
+import { formatPRDiffForLLM, formatFileDiffForLLM } from "./diff-parser";
 
 // Single source of truth for the default prompt lives in store/settings
 // but we re-export here so llm-engine can import from one place

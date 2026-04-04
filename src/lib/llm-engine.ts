@@ -1,5 +1,4 @@
-import { PRDetails } from "./types";
-import { PRDiff } from "./diff-parser";
+import { PRDetails, PRDiff } from "./types";
 import { Review, ReviewComment, parseReviewResponse, formatZodError } from "./review-schema";
 import { buildFilePrompt, buildUserPrompt } from "./prompts";
 
