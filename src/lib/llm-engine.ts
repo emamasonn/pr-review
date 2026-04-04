@@ -55,6 +55,18 @@ function restoreTLS(): void {
   }
 }
 
+/**
+ * Headers adicionales requeridos por ngrok en modo free tier.
+ * Cuando el host es localhost no se necesitan — ngrok no está en el path.
+ */
+function ngrokHeaders(url: string): Record<string, string> {
+  const isLocal = /https?:\/\/(localhost|127\.0\.0\.1)/.test(url);
+  if (isLocal) return {};
+  // ngrok bloquea con 403 cualquier request que no venga de un browser
+  // a menos que se incluya este header. También desactiva la página de advertencia.
+  return { "ngrok-skip-browser-warning": "true" };
+}
+
 // ─── Ollama ───────────────────────────────────────────────────
 
 class OllamaProvider implements LLMProvider {
@@ -85,7 +97,7 @@ class OllamaProvider implements LLMProvider {
     try {
       response = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...ngrokHeaders(url) },
         body: JSON.stringify(body),
         signal: controller.signal,
         ...makeFetchOptions(url),
@@ -118,6 +130,7 @@ class OllamaProvider implements LLMProvider {
     try {
       res = await fetch(url, {
         signal: AbortSignal.timeout(5000),
+        headers: { ...ngrokHeaders(url) },
         ...makeFetchOptions(url),
       });
     } catch {
