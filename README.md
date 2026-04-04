@@ -9,6 +9,9 @@ Soporta dos modos de ejecución:
 
 Demo: https://pr-review-two.vercel.app/
 
+<img width="1505" height="820" alt="Screenshot 2026-04-04 at 8 29 52 PM" src="https://github.com/user-attachments/assets/43e0291d-0acf-4ec3-a096-53cc646fa29e" />
+
+
 ---
 
 ## Índice
