@@ -329,52 +329,6 @@ Hacer click en el botón del modelo → seleccionar **Claude** → ingresar:
 | `claude-sonnet-4-5`         | Balanceado | Alta      | Medio |
 | `claude-haiku-4-5-20251001` | Rápido     | Buena     | Bajo  |
 
-### Para deploy en Vercel
-
-Agregar en **Vercel → Settings → Environment Variables**:
-
-```
-ANTHROPIC_API_KEY=sk-ant-...
-LLM_PROVIDER=anthropic
-ANTHROPIC_MODEL=claude-sonnet-4-5
-```
-
----
-
-## Deploy en Vercel
-
-### Deploy directo
-
-```bash
-# Instalar Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-```
-
-### Variables de entorno en Vercel
-
-Ir a **Vercel → tu proyecto → Settings → Environment Variables** y agregar:
-
-```env
-GITHUB_PAT=github_pat_...
-GITHUB_REPO=owner/repo         # opcional, se puede ingresar en la UI
-
-# Si usás Claude:
-LLM_PROVIDER=anthropic
-ANTHROPIC_API_KEY=sk-ant-...
-ANTHROPIC_MODEL=claude-sonnet-4-5
-
-# Si usás Ollama vía ngrok:
-LLM_PROVIDER=ollama
-OLLAMA_HOST=https://abc123.ngrok-free.app
-OLLAMA_MODEL=codellama
-OLLAMA_TIMEOUT_MS=120000
-```
-
-> **Importante:** si las variables están definidas en Vercel, la app las usa directamente al ejecutar el análisis. Los valores ingresados en la UI tienen prioridad sobre las variables de entorno del servidor.
-
 ---
 
 ## Variables de entorno
